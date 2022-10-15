@@ -49,7 +49,7 @@ L<-45.3833333              #Latitude
 alpha.s<-0.8               #solar absorptivity, B18
 Eb<-1395                   #extraterrestrial solar flux density, W m-2
 tau<-0.75                  #Atmospheric transimttance, 0.75 clear, 0.4 overcast
-A<-7.3                     #Altitude, m
+A<-79.2                    #Altitude, m
 Pa<-101325*exp(-A/8200)    #Local air pressure, Pa
 e.sigma<-5.67*10^-8        #Stefan-Boltzmann constant, B25
 epsilon<-0.95              #emissivity,B26

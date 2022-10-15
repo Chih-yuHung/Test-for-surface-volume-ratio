@@ -36,7 +36,7 @@ for (i in 1:n) {
   temp150[[i]]<-read.csv(paste("result/Wind speed/150%/",temp[i],sep=""))
 }
 
-#Create a dataframe to store  50% results. 
+#Create a dataframe to store  150% results. 
 result150<-data.frame(ID=temp,maxtemp=c(1:n),mintemp=c(1:n),
                      surface=ri^2*pi,
                      maxvolume=c(1:n),minvolume=c(1:n),maxTa=c(1:n),
@@ -102,6 +102,7 @@ result100$minTa<-min(Tmean.air)
 result150$maxTa<-max(Tmean.air)
 result150$minTa<-min(Tmean.air)
 
+
 #the difference between max Ta and max Tm, and min Ta and min Tm
 result50$diff.max<-result50$maxtemp-result50$maxTa
 cor.test(result50$SVratio.max,result50$diff.max)
@@ -110,31 +111,53 @@ cor.test(result100$SVratio.max,result100$diff.max)
 result150$diff.max<-result150$maxtemp-result150$maxTa
 cor.test(result150$SVratio.max,result150$diff.max)
 
+# save(result50,file="result50%_Ottawa")
+# save(result100,file="result100%_Ottawa")
+# save(result150,file="result150%_Ottawa")
+
+#Input data from Ottawa
+load(file="result50%_Ottawa")
+load(file="result100%_Ottawa")
+load(file="result150%_Ottawa")
+#Input data from EDM
+EDM<-"C:/Users/hungc/OneDrive - AGR-AGR/AAFC/Project 7_surface area ratio/2_mehtods/R/Test-for-surface-volume-ratio-EDM"
+load(file=paste(EDM,"/result50%_EDM",sep=""))
+load(file=paste(EDM,"/result100%_EDM",sep=""))
+load(file=paste(EDM,"/result150%_EDM",sep=""))
+
 # result$diff.min<-result$mintemp-result$minTa
 #To plot results for max temperature
 #output at 800 x 600
+par(mar=c(4,5,4,4))
 plot(result50$SVratio.max,result50$diff.max,
      #xlab=expression(paste("Surface area / manure volume (",m^-1,")")),
      xlab="",
      ylab=expression(paste("T"["diff"]~"(",degree,"C)")),
      las=1,xaxs="i",yaxs="i",
-     xlim=c(0.32,0.50),
-     ylim=c(0,4.8),
+     xlim=c(0.30,0.50),
+     ylim=c(-5,4.8),
      pch=16,cex.lab=1.3,cex=1.3)
 points(result100$SVratio.max,result100$diff.max,pch=17,cex=1.3)
-points(result150$SVratio.max,result150$diff.max,pch=18,cex=1.3)
-text(0.41,c(4.2,3.9),c(expression(paste("r = 0.99,",italic(P),"< 0.001"))
-                ,"\n50% wind speed"),pos=4)
-text(0.43,c(2.5,2.2),c(expression(paste("r = 0.99, ",italic(P),"< 0.001"))
-                ,"\n100% wind speed"),pos=4)
-text(0.44,c(0.7,0.4), c(expression(paste("r = 0.94, ",italic(P),"< 0.001"))
-                ,"\n150% wind speed"),pos=4)
-text(0.32,4.4,"(a)",pos=4,cex=1.3)
-
+points(result150$SVratio.max,result150$diff.max,pch=15,cex=1.3)
+text(0.41,4.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.43,2.3,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.45,0.4,expression(paste("r = 0.94, ",italic(P),"< 0.001")),pos=4)
+text(0.30,4.4,"(a)",pos=4,cex=1.3)
+#EDM part
+points(result50.EDM$SVratio.max,result50.EDM$diff.max,pch=1,cex=1.3)
+points(result100.EDM$SVratio.max,result100.EDM$diff.max,pch=2,cex=1.3)
+points(result150.EDM$SVratio.max,result150.EDM$diff.max,pch=0,cex=1.3)
+text(0.33,-0.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.36,-1.9,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.37,-3.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+legend(0.30,-2,c("Ottawa","6.5","13.0","19.5","Edmonton","6.1","12.2","18.3")
+       ,pch=c(NA,16,17,15,NA,1,2,0),ncol=2,bty="n"
+       ,title=expression(Wind~speed~ "("~km~h^-1~")"))
 
 #I don't want to discuss this part in the paper, CY March 22,2022
 #To plot results for min temperature
 # plot((result$minvolume/result$surface)[1:10],result$diff.min[1:10])
 # plot(result$SVratio.min,result$diff.min)
 # cor.test(result$SVratio.min,result$diff.min)
+
 

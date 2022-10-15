@@ -13,7 +13,7 @@ Sb<-ifelse(sin.alpha>0,Eb*(tau^m)*sin.alpha,0)       #solar bean radiation (W/m2
 Sd<-ifelse(sin.alpha>0,0.3*(1-tau^m)*Eb*sin.alpha,0) #Diffusive radiation (w/m2),F105-KG105
 Sr.total<-sum(Sb,Sd)                                 #F322, Total solar radiation
 q.net.rad<-alpha.s*((Sb+Sd)/Sr.total)*((SR*1000*1000)/T.delta) #Net solar radiation, F106:KG106
-
+q.net.rad<-q.net.rad*0.8
 #data is from measured data
 RH6<-Envir.daily$RH.6[i]
 RH15<-Envir.daily$RH.15[i]
