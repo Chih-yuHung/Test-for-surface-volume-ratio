@@ -111,19 +111,19 @@ cor.test(result100$SVratio.max,result100$diff.max)
 result150$diff.max<-result150$maxtemp-result150$maxTa
 cor.test(result150$SVratio.max,result150$diff.max)
 
-# save(result50,file="result50%_Ottawa")
-# save(result100,file="result100%_Ottawa")
-# save(result150,file="result150%_Ottawa")
+#save(result50,file="result50%_Ottawa.rda")
+#save(result100,file="result100%_Ottawa.rda")
+#save(result150,file="result150%_Ottawa.rda")
 
 #Input data from Ottawa
-load(file="result50%_Ottawa")
-load(file="result100%_Ottawa")
-load(file="result150%_Ottawa")
+load(file="result50%_Ottawa.rda")
+load(file="result100%_Ottawa.rda")
+load(file="result150%_Ottawa.rda")
 #Input data from EDM
 EDM<-"C:/Users/hungc/OneDrive - AGR-AGR/AAFC/Project 7_surface area ratio/2_mehtods/R/Test-for-surface-volume-ratio-EDM"
-load(file=paste(EDM,"/result50%_EDM",sep=""))
-load(file=paste(EDM,"/result100%_EDM",sep=""))
-load(file=paste(EDM,"/result150%_EDM",sep=""))
+load(file=paste(EDM,"/result50%_EDM.rda",sep=""))
+load(file=paste(EDM,"/result100%_EDM.rda",sep=""))
+load(file=paste(EDM,"/result150%_EDM.rda",sep=""))
 
 # result$diff.min<-result$mintemp-result$minTa
 #To plot results for max temperature
@@ -134,23 +134,24 @@ plot(result50$SVratio.max,result50$diff.max,
      xlab="",
      ylab=expression(paste("T"["diff"]~"(",degree,"C)")),
      las=1,xaxs="i",yaxs="i",
-     xlim=c(0.30,0.50),
-     ylim=c(-5,4.8),
-     pch=16,cex.lab=1.3,cex=1.3)
+     xlim=c(0.30,0.70),
+     ylim=c(-5,6),
+     pch=16,cex.lab=1.3,cex=1.3,xaxt="n")
+axis(side = 1, at = c(0.3, 0.4, 0.5, 0.6, 0.7), labels = c('0.30', '0.40', '0.50', '0.60', '0.70'))
 points(result100$SVratio.max,result100$diff.max,pch=17,cex=1.3)
 points(result150$SVratio.max,result150$diff.max,pch=15,cex=1.3)
-text(0.41,4.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.43,2.3,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.45,0.4,expression(paste("r = 0.94, ",italic(P),"< 0.001")),pos=4)
-text(0.30,4.4,"(a)",pos=4,cex=1.3)
+text(0.60,4.8,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.60,2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.60,-0.1,expression(paste("r = 0.98, ",italic(P),"< 0.001")),pos=4)
+text(0.30,5.7,"(a)",pos=4,cex=1.3)
 #EDM part
 points(result50.EDM$SVratio.max,result50.EDM$diff.max,pch=1,cex=1.3)
 points(result100.EDM$SVratio.max,result100.EDM$diff.max,pch=2,cex=1.3)
 points(result150.EDM$SVratio.max,result150.EDM$diff.max,pch=0,cex=1.3)
-text(0.33,-0.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.36,-1.9,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.37,-3.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-legend(0.30,-2,c("Ottawa","6.5","13.0","19.5","Edmonton","6.1","12.2","18.3")
+text(0.30,0.6,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.31,-1.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+text(0.32,-2.4,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
+legend(0.55,-2,c("Ottawa","6.5","13.0","19.5","Edmonton","6.1","12.2","18.3")
        ,pch=c(NA,16,17,15,NA,1,2,0),ncol=2,bty="n"
        ,title=expression(Wind~speed~ "("~km~h^-1~")"))
 
