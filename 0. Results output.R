@@ -130,30 +130,46 @@ load(file=paste(EDM,"/result150%_EDM.rda",sep=""))
 #output at 800 x 600
 par(mar=c(4,5,4,4))
 plot(result50$SVratio.max,result50$diff.max,
-     #xlab=expression(paste("Surface area / manure volume (",m^-1,")")),
-     xlab="",
+     xlab=expression(paste("Surface area / manure volume (",m^-1,")")),
+     #xlab="",
      ylab=expression(paste("T"["diff"]~"(",degree,"C)")),
      las=1,xaxs="i",yaxs="i",
      xlim=c(0.30,0.70),
      ylim=c(-5,6),
-     pch=16,cex.lab=1.3,cex=1.3,xaxt="n")
-axis(side = 1, at = c(0.3, 0.4, 0.5, 0.6, 0.7), labels = c('0.30', '0.40', '0.50', '0.60', '0.70'))
-points(result100$SVratio.max,result100$diff.max,pch=17,cex=1.3)
-points(result150$SVratio.max,result150$diff.max,pch=15,cex=1.3)
-text(0.60,4.8,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.60,2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.60,-0.1,expression(paste("r = 0.98, ",italic(P),"< 0.001")),pos=4)
-text(0.30,5.7,"(a)",pos=4,cex=1.3)
-#EDM part
-points(result50.EDM$SVratio.max,result50.EDM$diff.max,pch=1,cex=1.3)
-points(result100.EDM$SVratio.max,result100.EDM$diff.max,pch=2,cex=1.3)
-points(result150.EDM$SVratio.max,result150.EDM$diff.max,pch=0,cex=1.3)
-text(0.30,0.6,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.31,-1.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-text(0.32,-2.4,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4)
-legend(0.55,-2,c("Ottawa","6.5","13.0","19.5","Edmonton","6.1","12.2","18.3")
-       ,pch=c(NA,16,17,15,NA,1,2,0),ncol=2,bty="n"
+     pch=16,cex.lab=1.8,cex=1.5,xaxt="n",cex.axis=1.5)
+axis(side = 1, at = c(0.3, 0.4, 0.5, 0.6, 0.7),cex.axis=1.5,
+     labels = c('0.30', '0.40', '0.50', '0.60', '0.70'))
+points(result100$SVratio.max,result100$diff.max,pch=17,cex=1.5)
+points(result150$SVratio.max,result150$diff.max,pch=15,cex=1.5)
+text(0.56,4.8,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+text(0.56,2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+text(0.56,-0.1,expression(paste("r = 0.98, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+text(0.30,5.6,"(a) Ottawa",pos=4,cex=1.8)
+legend(0.30,-1,c("6.5","13.0","19.5")
+       ,pch=c(16,17,15),ncol=1,bty="n",cex=1.8
        ,title=expression(Wind~speed~ "("~km~h^-1~")"))
+
+#EDM part
+plot(result50.EDM$SVratio.max,result50.EDM$diff.max,
+     xlab=expression(paste("Surface area / manure volume (",m^-1,")")),
+     #xlab="",
+     ylab=expression(paste("T"["diff"]~"(",degree,"C)")),
+     las=1,xaxs="i",yaxs="i",
+     xlim=c(0.30,0.70),
+     ylim=c(-5,6),
+     pch=1,cex.lab=1.8,cex=1.5,xaxt="n",cex.axis=1.5)
+points(result100.EDM$SVratio.max,result100.EDM$diff.max,pch=2,cex=1.5)
+points(result150.EDM$SVratio.max,result150.EDM$diff.max,pch=0,cex=1.5)
+text(0.30,-0.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+text(0.31,-2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+text(0.32,-3.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+axis(side = 1, at = c(0.3, 0.4, 0.5, 0.6, 0.7), 
+     labels = c('0.30', '0.40', '0.50', '0.60', '0.70'),
+     cex.axis=1.5)
+legend(0.30,5.2,c("6.1","12.2","18.3")
+       ,pch=c(1,2,0),ncol=1,bty="n",cex=1.8
+       ,title=expression(Wind~speed~ "("~km~h^-1~")"))
+text(0.30,5.6,"(b) Edmonton",pos=4,cex=1.8)
 
 #I don't want to discuss this part in the paper, CY March 22,2022
 #To plot results for min temperature
