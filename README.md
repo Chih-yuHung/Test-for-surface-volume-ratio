@@ -16,5 +16,7 @@ This script created multiple variables, i.e. the diameters of storage, to create
 ## 2. Marco.R
 This script is the major script for simulation. People who want to see how to run the simulation can read the script here. The script ***source*** some scripts to run other calculations, which include **constant.R** (for constant used in the simulation), **Manure volume.R** (to calculate daily manure volume), **Solar radiation and soil temper.R** (to calculate heat transfers), **hourly temp.R** (to obtain hourly temperature data)
 
+# How to repeat simulation
+You can repeat the simulation by running the **1. Major.R** and **2.Marco.R**. The necessary scripts and data should be downloaded in the same directory for ***source***.
 
 
