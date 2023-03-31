@@ -89,9 +89,6 @@ Output[i,9]<-Evap.depth.d*100 #Daily Evaporation (cm)
 Output[i,10]<-precip.d*100 #Daily Precipitation (cm)
 Output[i,11]<-sum(q.net.rad)  #Net solar radiation, F106:KG106
 
-#write the result for manure temperature at 0.5m
-source("8.Manure temperature at 0.5.R",echo=F)
-
 #daily changing depth of manure for next day, L32<-L37
 M.depth<-M.depth+depthchange.d
 Zmmax<-M.depth    
