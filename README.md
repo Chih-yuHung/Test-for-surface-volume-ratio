@@ -4,7 +4,7 @@ This repository provides the **Ottawa** results in "Perspectives on peak liquid 
 
 # Data
 Input data include **daily env input_RH.csv**, which has daily air temperature, precipitation, wind speed, solar radiation, and RH, and **Initial M temp.csv**, which has assumed initial manure temperature.
-Output data are the simulation results that can be directly used to create figure 2A in the manuscript. The data include *result50%_Ottawa.rda*, *result100%_Ottawa.rda*, and *result150%_Ottawa.rda*. The data can be read with ***load*** in R. 
+Output data are the simulation results that can be directly used to create figure 2A in the manuscript. The data include *result50%_Ottawa.rda*, *result100%_Ottawa.rda*, and *result150%_Ottawa.rda*, which are 50%, 100% and 150% wind speed respectively. The data can be read with ***load*** in R. 
 
 ## 0.REsults output.R
 This script organize the data and create Figure 2.  
