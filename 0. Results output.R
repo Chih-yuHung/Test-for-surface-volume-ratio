@@ -141,9 +141,9 @@ axis(side = 1, at = c(0.3, 0.4, 0.5, 0.6, 0.7),cex.axis=1.5,
      labels = c('0.30', '0.40', '0.50', '0.60', '0.70'))
 points(result100$SVratio.max,result100$diff.max,pch=17,cex=1.5)
 points(result150$SVratio.max,result150$diff.max,pch=15,cex=1.5)
-text(0.56,4.8,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
-text(0.56,2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
-text(0.56,-0.1,expression(paste("r = 0.98, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+#text(0.56,4.8,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+#text(0.56,2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+#text(0.56,-0.1,expression(paste("r = 0.98, ",italic(P),"< 0.001")),pos=4,cex=1.3)
 text(0.30,5.6,"(a) Ottawa",pos=4,cex=1.8)
 legend(0.30,-1,c("6.5","13.0","19.5")
        ,pch=c(16,17,15),ncol=1,bty="n",cex=1.8
@@ -160,13 +160,13 @@ plot(result50.EDM$SVratio.max,result50.EDM$diff.max,
      pch=1,cex.lab=1.8,cex=1.5,xaxt="n",cex.axis=1.5)
 points(result100.EDM$SVratio.max,result100.EDM$diff.max,pch=2,cex=1.5)
 points(result150.EDM$SVratio.max,result150.EDM$diff.max,pch=0,cex=1.5)
-text(0.30,-0.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
-text(0.31,-2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
-text(0.32,-3.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+#text(0.30,-0.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+#text(0.31,-2.0,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
+#text(0.32,-3.2,expression(paste("r = 0.99, ",italic(P),"< 0.001")),pos=4,cex=1.3)
 axis(side = 1, at = c(0.3, 0.4, 0.5, 0.6, 0.7), 
      labels = c('0.30', '0.40', '0.50', '0.60', '0.70'),
      cex.axis=1.5)
-legend(0.30,5.2,c("6.1","12.2","18.3")
+legend(0.32,5.2,c("6.1","12.2","18.3")
        ,pch=c(1,2,0),ncol=1,bty="n",cex=1.8
        ,title=expression(Wind~speed~ "("~km~h^-1~")"))
 text(0.30,5.6,"(b) Edmonton",pos=4,cex=1.8)

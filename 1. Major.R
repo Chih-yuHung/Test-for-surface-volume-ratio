@@ -12,23 +12,3 @@ for (l in 1:10) {
 }
 #wind speed for Ottawa, 100% =13 km h
 #wind speed for Edmonton, 100% = 12.2 km h
-
-#To simulate various diameter and various annual manure input
-# for (l in 1:5){
-#   for (p in c(1,0.9,0.8,0.7)){
-#     ri<-temp.radius[l]
-#     M.storage<-temp.Mstorage[l]*p
-#     source("2.Marco loop.R",echo = F)
-#   }
-# }
-
-# #to simulate in differe latitude
-# for (l in 1:5){
-#   for (p in 1:5){
-#     ri<-temp.radius[l]
-#     M.storage<-temp.Mstorage[l]
-#     L<-temp.latitude[p]
-#     source("2.Marco loop.R",echo = F)
-#   }
-# }
-
